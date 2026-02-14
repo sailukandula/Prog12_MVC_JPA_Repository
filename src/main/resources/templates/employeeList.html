@@ -12,7 +12,7 @@
         <th>Id</th>
         <th>Name</th>
         <th>Salary</th>
-        <th>Actions</th>
+        <th>EmployeeType</th>
     </tr>
     </thead>
 
@@ -20,6 +20,7 @@
         <td th:text="${employee.id}"></td>
         <td th:text="${employee.name}"></td>
         <td th:text="${employee.salary}"></td>
+        <td th:text="${employee.employeeType}"></td>
 
         <td>
             <a th:href="@{/employee/edit/{id}(id=${employee.id})}">Update</a>

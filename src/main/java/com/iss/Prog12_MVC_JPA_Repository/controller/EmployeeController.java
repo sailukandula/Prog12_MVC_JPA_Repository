@@ -2,6 +2,7 @@ package com.iss.Prog12_MVC_JPA_Repository.controller;
 
 import com.iss.Prog12_MVC_JPA_Repository.entities.EmployeeData;
 import com.iss.Prog12_MVC_JPA_Repository.services.IEmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +18,10 @@ public class EmployeeController {
     public String index(){
         return "index";
     }
+
     @PostMapping("/new")
-    public String newEmployee(EmployeeData employeeData,Model model){
-      //  System.out.println(employeeData.getId() + employeeData.getName());
+    public String newEmployee(@Valid EmployeeData employeeData, Model model){
+        System.out.println(employeeData.getId() + employeeData.getName() +employeeData.getEmployeeType());
         employeeService.save(employeeData);
         model.addAttribute("employees", employeeService.getAllEmployees());
         return "employeeList";

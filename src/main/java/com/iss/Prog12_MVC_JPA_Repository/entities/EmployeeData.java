@@ -1,8 +1,10 @@
 package com.iss.Prog12_MVC_JPA_Repository.entities;
 
+import com.iss.Prog12_MVC_JPA_Repository.customValidators.ValidateEmployeeType;
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,4 +19,6 @@ public class EmployeeData {
     private int id;
     private String name;
     private double salary;
+    @ValidateEmployeeType
+    private String employeeType;
 }
